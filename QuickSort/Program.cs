@@ -4,7 +4,7 @@ using System;
 using System;
 
 
-namespace QuickSort_20220140031
+namespace QuickSort
 {
     class Program
     {
