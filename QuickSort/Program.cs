@@ -1,8 +1,8 @@
 ﻿using System;
-using System;
-using System;
-using System;
-
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks:
 
 namespace QuickSort
 {
@@ -18,5 +18,23 @@ namespace QuickSort
 
 
         void input()
+        {
+            while (true)
+            {
+                Console.Write("Enter the number of elements in the array :");
+                string s = Console.ReadLine();
+                n = Int32.Parse(s);
+                if (n <= 20)
+                    break;
+                else
+                    Console.WriteLine("\nArray can have maximum 20 elements \n");
+            }
+            Console.WriteLine("\n=====================");
+            Console.WriteLine("enter Array Elements");
+            Console.WriteLine("\n=====================");
+
+            //get array elements
+            for(int i =0;i < n: i++)
+        }
     }
 }
