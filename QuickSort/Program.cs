@@ -9,7 +9,7 @@ namespace QuickSort
     class Program
     {
         //array of integers to hold values
-        private int[] arr = new int[20];
+        private int[]arr = new int[20];
         private int cmp_count = 0; // number of comparasion
         private int mov_count = 0; // number of data movements
 
@@ -34,7 +34,7 @@ namespace QuickSort
             Console.WriteLine("\n=====================");
 
             //get array elements
-            for (int i = 0; i < n; i++);
+            for (int i = 0; i < n; i++)
             {
                 Console.Write("<" + (i + 1) + ">");
                 string s1 = Console.ReadLine();
@@ -71,9 +71,71 @@ namespace QuickSort
                 while ((arr[i] <= pivot) && (i <= high))
                 {
                     i++;
-                    cmp_count++,
+                    cmp_count++;
+                }
+                cmp_count++;
+
+                //Search for an element less than or equal to pivot
+                while ((arr[j] > pivot) && (j >= low))
+                {
+                    j--;
+                    cmp_count++;
+                }
+                cmp_count++;
+
+                if (i < j) //if the greater element is on the left of the element
+                {
+                    //swap the element at index i whit the element at index j
+                    swap(i, j);
+                    mov_count++;
                 }
             }
+            //j now contains the index of the last element in the sorted list
+
+            if (low < j)
+            {
+                //Move the pivot to its correct position in the list
+                swap(low, j);
+                mov_count++;
+            }
+            //sort the list on the left of pivot using quick sort
+            q_sort(low, j - 1);
+
+            //sort the list on the right of pivot using quick sort
+            q_sort(j + 1, high);
+        }
+        void display()
+        {
+            Console.WriteLine("\n--------------------");
+            Console.WriteLine("sorted array elements ");
+            Console.WriteLine("----------------------");
+
+            for (int j = 0; j < n; j++)
+            {
+                Console.WriteLine(arr[j]);
+            }
+            Console.WriteLine("\nNumber of comparisons: " + cmp_count);
+            Console.WriteLine("\nNumber of data movements;" + mov_count);
+        }
+        int getsize()
+        {
+            return (n);
+        }
+        static void main(string[] args)
+        {
+            //Declaring the object of the class
+            Program mylist = new Program();
+            //Acept array elements
+            mylist.display();
+            //Calling the Sorting function
+            //Frist call to Quick sort Algorithm
+            mylist.q_sort(0, mylist.getsize() - 1);
+            //Display sorted array
+            mylist.display();
+            //to exit from the console
+            Console.WriteLine("\n\nPress Enter to exit.");
+            Console.Read();
+
         }
     }
 }
