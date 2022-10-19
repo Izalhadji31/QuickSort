@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks:
+using System.Threading.Tasks;
 
 namespace QuickSort
 {
@@ -34,7 +34,7 @@ namespace QuickSort
             Console.WriteLine("\n=====================");
 
             //get array elements
-            for(int i =0;i < n: i++)
+            for (int i = 0; i < n; i++);
             {
                 Console.Write("<" + (i + 1) + ">");
                 string s1 = Console.ReadLine();
@@ -51,5 +51,29 @@ namespace QuickSort
             arr[y] = temp;
         }
         public void q_sort(int low,int high)
+        {
+            int pivot, i, j;
+            if (low > high)
+                return;
+
+            //Partititon the list into two parts;
+            //one containing elements less that or equal to pivot
+            //Outher conntainning elements greather than pivot
+
+            i = low + 1;
+            j = high;
+
+            pivot = arr[low];
+
+            while (i <= j)
+            {
+                //Search for an element greater than pivot
+                while ((arr[i] <= pivot) && (i <= high))
+                {
+                    i++;
+                    cmp_count++,
+                }
+            }
+        }
     }
 }
